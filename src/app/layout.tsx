@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Fixed LightPillar background behind all sections. Non-interactive wrapper so it doesn't block input. */}
+        {/* Fixed LightPillar background behind all sections. Non-interactive wrapper so it doesn't block input.
         <div className="fixed inset-0 bg-background -z-10 pointer-events-none">
           <LightPillar
             topColor="#ff297e"
@@ -44,7 +44,7 @@ export default function RootLayout({
             mixBlendMode="screen"
             quality="high"
           />
-        </div>
+        </div> */}
         {children}
       </body>
     </html>

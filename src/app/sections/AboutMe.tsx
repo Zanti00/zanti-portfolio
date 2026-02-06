@@ -3,9 +3,9 @@ import Timeline from "@/components/Timeline";
 
 export default function AboutMe() {
   return (
-    <div className="flex flex-col gap-8 mr-52 ">
-      <div className="flex flex-col items-center gap-4">
-        <h3 className=" font-bold">About Me</h3>
+    <div className="flex flex-col gap-8 px-4 md:px-52 py-10 md:py-20 text-primary bg-gray-100">
+      <div className="flex flex-col items-center gap-4" >
+        <h3 className="font-bold text-2xl">About Me</h3>
         <h1 className="text-4xl font-bold">
           Building Production-Ready Systems
         </h1>
@@ -14,8 +14,8 @@ export default function AboutMe() {
           scalable architecture and clean code
         </p>
       </div>
-      <div className="grid grid-cols-5 grid-rows-3 gap-4">
-        <Card className="col-span-3 row-span-3 shadow-2xl justify-center px-4 gap-3 bg-linear-to-br from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
+      <div className="flex flex-col gap-4 md:grid md:grid-cols-5 md:grid-rows-3 md:gap-4">
+        <Card className="md:order-1 md:col-span-3 md:row-span-3 justify-center px-4 gap-3 ">
           <h2 className="font-bold text-xl">What I Do</h2>
           <p>
             I build production-ready web and mobile systems using modern
@@ -32,7 +32,7 @@ export default function AboutMe() {
             offline capabilities.
           </p>
         </Card>
-        <Card className="col-span-2 row-span-5 shadow-2xl col-start-4 bg-linear-to-tl from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
+        <Card className="md:order-2 md:col-span-2 md:row-span-5 md:col-start-4 bg-linear-to-tl from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
           <Timeline />
         </Card>
       </div>
