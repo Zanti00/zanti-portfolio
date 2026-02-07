@@ -2,10 +2,10 @@ import { Card } from "@/components/ui/card";
 
 export default function TechStack() {
   return (
-    <div className="flex flex-col items-center w-full px-52 py-20 gap-8">
+    <div className="flex flex-col items-center w-full px-4 lg:px-52 py-10 lg:py-20 gap-8">
       <h3 className="font-bold text-theme-500 text-2xl">Technology Stack</h3>
-      <div className="grid grid-cols-3 gap-10 px-10">
-        <Card className="col-span-1 h-72 justify-center shadow-2xl px-12 bg-linear-to-tl from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-10 md:px-10">
+        <Card className="h-72 justify-center shadow-2xl px-12 bg-linear-to-tl from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white md:col-span-1">
           <div className="flex flex-col items-center gap-6">
             <h2 className="font-bold text-2xl">Frontend</h2>
             <div className="flex flex-col items-center gap-2 text-sm text-gray-200">
@@ -19,7 +19,7 @@ export default function TechStack() {
             </div>
           </div>
         </Card>
-        <Card className="col-span-1 h-72 justify-center shadow-2xl px-12 bg-linear-to-br from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
+        <Card className="h-72 justify-center shadow-2xl px-12 bg-linear-to-br from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white md:col-span-1">
           <div className="flex flex-col items-center gap-6">
             <h2 className="font-bold text-2xl">Backend</h2>
             <div className="flex flex-col items-center gap-2 text-sm text-gray-200">
@@ -32,7 +32,7 @@ export default function TechStack() {
             </div>
           </div>
         </Card>
-        <Card className="col-span-1 h-72 justify-center shadow-2xl px-12 bg-linear-to-l from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
+        <Card className="h-72 justify-center shadow-2xl px-12 bg-linear-to-l from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white md:col-span-1">
           <div className="flex flex-col items-center gap-6">
             <h2 className="font-bold text-2xl">Database</h2>
             <div className="flex flex-col items-center gap-2 text-sm text-gray-200">
@@ -46,9 +46,9 @@ export default function TechStack() {
             </div>
           </div>
         </Card>
-        <Card className="col-span-1 h-72 justify-center shadow-2xl px-12 bg-linear-to-r from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
-          <div className="flex flex-col items-center gap-6">
-            <h2 className="font-bold text-2xl">DevOps & Tools</h2>
+        <Card className="h-72 justify-center items-center text-center shadow-2xl px-12 bg-linear-to-r from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white md:col-span-1">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <h2 className="font-bold text-2xl text-center">DevOps & Tools</h2>
             <div className="flex flex-col items-center gap-2 text-sm text-gray-200">
               <p className="hover:text-theme-500 hover:font-bold">
                 Git & GitHub
@@ -59,7 +59,7 @@ export default function TechStack() {
             </div>
           </div>
         </Card>
-        <Card className="col-span-1 h-72 justify-center shadow-2xl px-12 bg-linear-to-bl from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white">
+        <Card className="h-72 justify-center shadow-2xl px-12 bg-linear-to-bl from-red-950 via-red-800 to-red-700 border-t-theme-600 border-t-3 border-x-0 border-b-0 text-white md:col-span-1">
           <div className="flex flex-col items-center gap-6 text-center">
             <h2 className="font-bold text-2xl">AI-Powered Developer Tools</h2>
             <div className="flex flex-col items-center gap-2 text-sm text-gray-200">

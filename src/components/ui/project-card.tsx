@@ -21,7 +21,7 @@ export function ProjectCard({
   imageSrc,
 }: ProjectCardProps) {
   return (
-    <Card className="overflow-hidden p-0 pb-10 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]">
+    <Card className="overflow-hidden p-0 pb-10 hover:-translate-y-3 transition-all duration-300">
       {imageSrc && (
         <div className="relative w-full h-full">
           <img

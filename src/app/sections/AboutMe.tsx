@@ -3,8 +3,8 @@ import Timeline from "@/components/Timeline";
 
 export default function AboutMe() {
   return (
-    <div className="flex flex-col gap-8 px-4 md:px-52 py-10 md:py-20 text-primary bg-gray-100">
-      <div className="flex flex-col items-center gap-4" >
+    <div className="flex flex-col gap-8 px-4 lg:px-52 py-10 lg:py-20 text-primary bg-gray-100">
+      <div className="flex flex-col items-center gap-4">
         <h3 className="font-bold text-2xl">About Me</h3>
         <h1 className="text-4xl font-bold">
           Building Production-Ready Systems
@@ -14,7 +14,7 @@ export default function AboutMe() {
           scalable architecture and clean code
         </p>
       </div>
-      <div className="flex flex-col gap-4 md:grid md:grid-cols-5 md:grid-rows-3 md:gap-4">
+      <div className="flex flex-col gap-4 lg:grid lg:grid-cols-5 lg:grid-rows-3 lg:gap-4">
         <Card className="md:order-1 md:col-span-3 md:row-span-3 justify-center px-4 gap-3 ">
           <h2 className="font-bold text-xl">What I Do</h2>
           <p>

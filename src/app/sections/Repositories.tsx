@@ -2,8 +2,8 @@ import { RepositoryCard } from "@/components/ui/repository-card";
 
 export default function Repositories() {
   return (
-    <div className="flex flex-row px-44 py-20 justify-center w-full gap-24">
-      <div className="flex flex-col">
+    <div className="grid md:grid-cols-2 px-4 py-10 lg:px-44 lg:py-20 justify-center w-full gap-24">
+      <div className="flex flex-col justify-self-center">
         <h2 className="text-6xl lg:text-7xl font-bold text-theme-500 mb-4">
           <span className="inline-block">&gt;</span> GitHub
         </h2>
