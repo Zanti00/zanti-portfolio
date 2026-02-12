@@ -21,7 +21,7 @@ export function ProjectCard({
   imageSrc,
 }: ProjectCardProps) {
   return (
-    <Card className="overflow-hidden p-0 pb-10 hover:-translate-y-3 transition-all duration-300">
+    <Card className="overflow-hidden bg-gray-50 border-0 p-0 pb-10 hover:-translate-y-3 transition-all duration-300">
       {imageSrc && (
         <div className="relative w-full h-full">
           <img
@@ -44,7 +44,7 @@ export function ProjectCard({
           </div>
         </div>
       )}
-      <CardContent>
+      <CardContent className="bg-gray-50">
         <CardTitle className="text-2xl mb-2 font-bold">{title}</CardTitle>
         <CardDescription className="mb-6 text-lg">
           {description}

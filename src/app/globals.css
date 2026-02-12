@@ -69,6 +69,156 @@
   }
 }
 
+/* ============================================================
+   Scroll Animation Utilities
+   @import this file in globals.css
+   ============================================================
+
+   The root cause of scroll-up not animating:
+   `animation-fill-mode: both` (via the `both` keyword) holds the
+   final keyframe forever once the section has fully entered. So
+   scrolling back up finds the element already at 100% — nothing
+   to scrub.
+
+   Fix: define BOTH an entry range AND an exit range so the
+   animation plays forward on entry and backward (scrubs in reverse)
+   on exit. Two separate animation declarations on the same element,
+   each covering their respective phase.
+
+   animation-range keywords:
+   - entry  → the phase where the element is crossing INTO the viewport
+   - exit   → the phase where the element is crossing OUT OF the viewport
+   - cover  → the entire time any part of the element is visible
+
+   We use `cover 0% cover 50%` for entry (bottom half of cover = entry)
+   and `cover 50% cover 100%` for exit (top half of cover = exit),
+   which gives a smooth symmetric scrub in both scroll directions.
+   ============================================================ */
+
+/* ── Shared base ─────────────────────────────────────────── */
+
+.section-animate {
+  will-change: transform, opacity;
+}
+
+/* ── Tier 1: Scroll-Driven Animations ────────────────────── */
+
+@supports (animation-timeline: scroll()) {
+  .section-animate {
+    /*
+      Two animations on the same keyframe, covering opposite halves
+      of the element's time in the viewport:
+
+      1. Entry phase  (cover 0%–50%):   scrubs zoom-in as section enters
+      2. Exit phase   (cover 50%–100%): scrubs zoom-out as section exits upward
+
+      animation-fill-mode is intentionally `none` here — we do NOT
+      want either animation holding its endpoint outside its range,
+      because the other animation covers that state.
+
+      Both run on `linear` timing so the scrub tracks scroll 1:1.
+    */
+    animation:
+      sectionZoomIn linear none,
+      sectionZoomOut linear none;
+
+    animation-timeline: view(), view();
+
+    animation-range:
+      cover 0% cover 30%,
+      cover 70% cover 100%;
+  }
+}
+
+/* ── Tier 2: IntersectionObserver fallback ───────────────── */
+
+@supports not (animation-timeline: scroll()) {
+  .section-animate.out-of-view {
+    opacity: 0;
+    transform: scale(0.94) translateY(16px);
+  }
+
+  .section-animate.in-view {
+    animation: sectionZoomIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* ── Keyframes ───────────────────────────────────────────── */
+
+@keyframes sectionZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/*
+  Exit keyframe is the mirror of entry — starts fully visible,
+  ends hidden. This drives the reverse scrub as the section
+  scrolls out of view upward.
+*/
+@keyframes sectionZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.94) translateY(16px);
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  @supports (animation-timeline: scroll()) {
+    .section-animate {
+      animation:
+        sectionFadeIn linear none,
+        sectionFadeOut linear none;
+
+      animation-timeline: view(), view();
+
+      animation-range:
+        cover 0% cover 50%,
+        cover 50% cover 100%;
+    }
+  }
+
+  @supports not (animation-timeline: scroll()) {
+    .section-animate.out-of-view {
+      opacity: 0;
+      transform: none;
+    }
+
+    .section-animate.in-view {
+      animation: sectionFadeIn 0.4s ease both;
+    }
+  }
+
+  @keyframes sectionFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes sectionFadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
 @layer utilities {
   .bg-accent {
     background-color: var(--accent);

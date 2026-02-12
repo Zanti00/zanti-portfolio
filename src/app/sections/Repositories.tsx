@@ -1,8 +1,16 @@
+"use client";
+
 import { RepositoryCard } from "@/components/ui/repository-card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Repositories() {
+  const ref = useScrollAnimation<HTMLDivElement>();
+
   return (
-    <div className="grid md:grid-cols-2 px-4 py-10 lg:px-44 lg:py-20 justify-center w-full gap-24">
+    <div
+      ref={ref}
+      className="section-animate grid md:grid-cols-2 px-4 py-10 lg:px-44 lg:py-20 justify-center w-full gap-24"
+    >
       <div className="flex flex-col justify-self-center">
         <h2 className="text-6xl lg:text-7xl font-bold text-theme-500 mb-4">
           <span className="inline-block">&gt;</span> GitHub

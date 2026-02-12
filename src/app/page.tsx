@@ -1,3 +1,5 @@
+"use client";
+
 import Hero from "@/app/sections/Hero";
 import AboutMe from "@/app/sections/AboutMe";
 import TechStack from "@/app/sections/TechStack";
@@ -5,7 +7,6 @@ import Projects from "@/app/sections/Projects";
 import Repositories from "@/app/sections/Repositories";
 import Contact from "@/app/sections/Contact";
 import Footer from "@/app/sections/Footer";
-
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center font-sans">
